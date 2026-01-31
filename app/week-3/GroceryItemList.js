@@ -73,31 +73,26 @@ export default function GroceryItemList() {
     category: "household",
   };
 
-  const items = [
-    item1,
-    item2,
-    item3,
-    item4,
-    item5,
-    item6,
-    item7,
-    item8,
-    item9,
-    item10,
-    item11,
-    item12,
-  ];
-
   return (
-    <ul className="space-y-3">
-      {items.map((item, index) => (
-        <Item
-          key={index}
-          name={item.name}
-          quantity={item.quantity}
-          category={item.category}
-        />
-      ))}
-    </ul>
+    <section className="bg-white p-6 rounded-xl shadow-md">
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+        Grocery Item List
+      </h2>
+
+      <ul className="space-y-3">
+        <Item {...item1} />
+        <Item {...item2} />
+        <Item {...item3} />
+        <Item {...item4} />
+        <Item {...item5} />
+        <Item {...item6} />
+        <Item {...item7} />
+        <Item {...item8} />
+        <Item {...item9} />
+        <Item {...item10} />
+        <Item {...item11} />
+        <Item {...item12} />
+      </ul>
+    </section>
   );
 }
