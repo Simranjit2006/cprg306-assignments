@@ -3,7 +3,7 @@ import items from "./items.json";
  
 export default function ItemList() {
  
-  // Group items by category (Week-4 requirement)
+  
   const groupedItems = items.reduce((groups, item) => {
     const category = item.category;
  

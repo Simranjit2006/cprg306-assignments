@@ -9,7 +9,7 @@ export default function Page() {
         Shopping List
       </h1>
  
-      <div className="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow">
+      <div className="max-w-2xl mx-auto bg-black p-6 rounded-xl shadow">
         <ItemList />
       </div>
     </main>
