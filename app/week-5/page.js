@@ -1,21 +1,15 @@
 import NewItem from "./NewItem";
- 
+
 export default function Page() {
-
   return (
-<main className="min-h-screen bg-gray-900 flex items-center justify-center p-10">
-<div className="w-full">
-<h1 className="text-3xl text-white font-bold text-center mb-6">
+    <main className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8 transition-colors">
+      <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+        Add New Shopping Item
+      </h1>
 
-          Week 5: New Shopping Item
-</h1>
- 
+      <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 p-6 rounded-xl shadow transition-colors">
         <NewItem />
-</div>
-</main>
-
+      </div>
+    </main>
   );
-
 }
-
- 

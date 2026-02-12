@@ -10,11 +10,7 @@ export default function NewItem() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const item = {
-      name,
-      quantity,
-      category,
-    };
+    const item = { name, quantity, category };
 
     console.log(item);
 
@@ -28,9 +24,8 @@ export default function NewItem() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
 
-      {/* Name Field */}
       <div>
-        <label className="block mb-1 font-medium text-slate-700">
+        <label className="block mb-1 font-medium text-slate-700 dark:text-slate-200">
           Item Name
         </label>
         <input
@@ -38,16 +33,16 @@ export default function NewItem() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400"
+          className="w-full p-2 border rounded-md
+          bg-white dark:bg-slate-700
+          text-slate-800 dark:text-slate-100
+          border-slate-300 dark:border-slate-600"
         />
       </div>
 
-      {/* Quantity + Category Row */}
       <div className="flex gap-4">
-
-        {/* Quantity */}
         <div className="flex-1">
-          <label className="block mb-1 font-medium text-slate-700">
+          <label className="block mb-1 font-medium text-slate-700 dark:text-slate-200">
             Quantity
           </label>
           <input
@@ -56,19 +51,24 @@ export default function NewItem() {
             max="99"
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400"
+            className="w-full p-2 border rounded-md
+            bg-white dark:bg-slate-700
+            text-slate-800 dark:text-slate-100
+            border-slate-300 dark:border-slate-600"
           />
         </div>
 
-        {/* Category */}
         <div className="flex-1">
-          <label className="block mb-1 font-medium text-slate-700">
+          <label className="block mb-1 font-medium text-slate-700 dark:text-slate-200">
             Category
           </label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400"
+            className="w-full p-2 border rounded-md
+            bg-white dark:bg-slate-700
+            text-slate-800 dark:text-slate-100
+            border-slate-300 dark:border-slate-600"
           >
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
@@ -85,10 +85,9 @@ export default function NewItem() {
         </div>
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
-        className="w-full bg-slate-800 text-white py-2 rounded-md hover:bg-slate-700 transition"
+        className="w-full bg-slate-800 dark:bg-slate-600 text-white py-2 rounded-md hover:bg-slate-700 dark:hover:bg-slate-500 transition"
       >
         +
       </button>

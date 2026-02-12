@@ -1,28 +1,26 @@
 import Item from "./item";
 import items from "./items.json";
- 
+
 export default function ItemList() {
- 
-  
   const groupedItems = items.reduce((groups, item) => {
     const category = item.category;
- 
+
     if (!groups[category]) {
       groups[category] = [];
     }
- 
+
     groups[category].push(item);
     return groups;
   }, {});
- 
+
   return (
     <div className="space-y-10">
       {Object.entries(groupedItems).map(([category, items]) => (
         <div key={category}>
-          <h2 className="text-xl font-bold mb-4 capitalize">
+          <h2 className="text-xl font-bold mb-4 capitalize text-slate-800 dark:text-slate-100">
             {category}
           </h2>
- 
+
           <ul className="space-y-4">
             {items.map(item => (
               <Item
@@ -38,5 +36,3 @@ export default function ItemList() {
     </div>
   );
 }
- 
- 
