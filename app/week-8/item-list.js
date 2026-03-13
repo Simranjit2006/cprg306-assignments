@@ -3,11 +3,10 @@
 import { useState } from "react";
 import Item from "./item";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
 
   const [mode, setMode] = useState("name");
 
-  // -------- GROUP MODE --------
   if (mode === "group") {
 
     const grouped = {};
@@ -22,7 +21,6 @@ export default function ItemList({ items }) {
     return (
       <div className="space-y-6">
 
-        {/* Buttons */}
         <div className="flex gap-3">
 
           <button
@@ -47,7 +45,6 @@ export default function ItemList({ items }) {
 
         </div>
 
-        {/* Grouped Items */}
         {Object.keys(grouped).sort().map(category => (
 
           <div key={category}>
@@ -61,7 +58,11 @@ export default function ItemList({ items }) {
               {grouped[category]
                 .sort((a,b)=>a.name.localeCompare(b.name))
                 .map(item => (
-                  <Item key={item.id} {...item} />
+                  <Item
+                    key={item.id}
+                    {...item}
+                    onSelect={() => onItemSelect(item)}
+                  />
                 ))
               }
 
@@ -75,7 +76,6 @@ export default function ItemList({ items }) {
     );
   }
 
-  // -------- NORMAL SORT --------
   const sortedItems = [...items].sort((a, b) => {
 
     if (mode === "name") return a.name.localeCompare(b.name);
@@ -89,7 +89,6 @@ export default function ItemList({ items }) {
   return (
     <div className="space-y-6">
 
-      {/* Buttons */}
       <div className="flex gap-3">
 
         <button
@@ -123,13 +122,16 @@ export default function ItemList({ items }) {
 
       </div>
 
-      {/* Items */}
       <ul className="space-y-4">
         {sortedItems.map(item => (
-          <Item key={item.id} {...item} />
+          <Item
+            key={item.id}
+            {...item}
+            onSelect={() => onItemSelect(item)}
+          />
         ))}
       </ul>
 
     </div>
   );
-} 
+}
